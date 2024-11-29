@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class permohonan extends Model
 {
-    // use HasFactory;
+    use HasFactory;
     protected $table = 'permohonan_layanan';
+
+    
 }

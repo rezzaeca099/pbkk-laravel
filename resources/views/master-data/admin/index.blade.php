@@ -69,6 +69,7 @@
                                 <th>Email</th>
                                 <th>Username</th>
                                 <th>Role</th>
+                                <th>kasatpel ID</th>
                                 <th>Visible</th>
                                 <th class="text-end min-w-100px">Actions</th>
                             </tr>
@@ -85,6 +86,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->username }}</td>
                                 <td>{{ $user->role_name }}</td>
+                                <td>{{ $user->kasatpel_id }}</td>
                                 <td>
                                     <span class="badge badge-pill {{ $user->visible == 1 ? 'bg-success' : 'bg-danger' }}">
                                         {{ $user->visible == 1 ? 'Aktif' : 'Tidak Aktif' }}
@@ -123,14 +125,17 @@
                                 <label for="name" class="form-label">Nama Lengkap</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
                             </div>
+
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
                             </div>
+
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
                             </div>
+
                             <div class="mb-3">
                                 <label for="role" class="form-label">Role</label>
                                 <select id="role" class="form-control" name="role" required>
@@ -140,6 +145,17 @@
                                     <option value="tenaga_ahli">tenaga_ahli</option>
                                 </select>
                             </div>
+
+                            <div class="mb-3">
+                                <label for="Kasatpel" class="form-label">Kasatpel</label>
+                                <select id="Kasatpel" class="form-control" name="kasatpel_id" required>
+                                    <option value="">Pilih Kasatpel</option>
+                                    @foreach ($kasatpelOptions as $kasatpel)
+                                        <option value="{{ $kasatpel->id }}">{{ $kasatpel->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            
                             <div class="mb-3">
                                 <label for="Visible" class="form-label">Visible</label>
                                 <select id="Visible" class="form-control" name="visible">
@@ -168,7 +184,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Apakah Anda yakin ingin menghapus layanan ini?
+                        Apakah Anda yakin ingin menghapus Akun ini ?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

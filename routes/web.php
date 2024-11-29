@@ -4,8 +4,10 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MasterAkunController;
 use App\Http\Controllers\Admin\PermohonanLayananController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CheckController;
 use App\Http\Controllers\MasterLayananController;
 use App\Http\Controllers\profilecontroller;
+use App\Models\permohonan;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -20,8 +22,13 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-// auth_login
+// Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/dashboard/{id}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
+Route::post('/laporan/{id}/assign', [DashboardController::class, 'assign'])->name('laporan.assign');
+
+
+// auth_login
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
@@ -52,6 +59,8 @@ Route::post('/permohonan/store', [PermohonanLayananController::class, 'store'])-
 Route::get('/permohonan/edit{id}', [PermohonanLayananController::class, 'edit'])->name('permohonan.edit');
 Route::post('/permohonan/update{id}', [PermohonanLayananController::class, 'update'])->name('permohonan.update');
 Route::post('/permohonan/{id}', [PermohonanLayananController::class, 'destroy'])->name('permohonan.destroy');
+Route::get('/permohonan/{id}/disposisi', [PermohonanLayananController::class, 'showDisposisiForm'])->name('permohonan.disposisi.form');
+Route::post('/permohonan/{id}/disposisi', [PermohonanLayananController::class, 'disposisi'])->name('permohonan.disposisi');
 
 // Profile
 Route::get('/profile/index', [profilecontroller::class,'index'])->name('profile.index');
@@ -59,7 +68,13 @@ Route::get('/profile/edit{id}', [profilecontroller::class,'edit'])->name('profil
 Route::post('/profile/store', [profilecontroller::class,'store'])->name('profile.store');
 Route::post('/profile/update/{id}', [ProfileController::class, 'update'])->name('profile.update');
 
-//  
+// tenaga_ahli_check
+Route::get('/permohonan/{id}/check', [CheckController::class, 'check'])->name('permohonan.check');
+Route::post('/permohonan/{id}/update', [CheckController::class, 'update'])->name('permohonan.update');
+Route::post('/check', [CheckController::class, 'store'])->name('check.store');
+
+
+
 
 
 

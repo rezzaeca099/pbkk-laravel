@@ -7,7 +7,7 @@
             
             <!-- flash/sweetalert Message -->
             @if (session('success'))
-                <script>
+                <script> 
                     Swal.fire({
                         icon: 'success',
                         title: 'Berhasil!',
@@ -58,7 +58,10 @@
                         <span class="input-group-text" style="border-radius: 10px 0 0 10px;">
                             <i class="fas fa-lock text-gray-500"></i>
                         </span>
-                        <input class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="off" style="border-radius: 0 10px 10px 0;" />
+                        <input class="form-control form-control-lg form-control-solid" type="password" id="password" name="password" autocomplete="off" style="border-radius: 0;" />
+                        <span class="input-group-text" onclick="togglePasswordVisibility()" style="cursor: pointer; border-radius: 0 10px 10px 0;">
+                            <i id="togglePasswordIcon" class="fas fa-eye text-gray-500"></i>
+                        </span>
                     </div>
                 </div>
 
@@ -75,10 +78,27 @@
     <!-- Footer Links -->
     <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
         <div class="d-flex flex-center fw-semibold fs-6">
-            <a href="https://keenthemes.com" class="text-muted text-hover-primary px-2" target="_blank">About</a>
-            <a href="https://devs.keenthemes.com" class="text-muted text-hover-primary px-2" target="_blank">Support</a>
-            <a href="https://keenthemes.com/products/saul-html-pro" class="text-muted text-hover-primary px-2" target="_blank">Purchase</a>
+            <a href="#" class="text-muted text-hover-primary px-2">About</a>
+            <a href="#" class="text-muted text-hover-primary px-2">Support</a>
+            <a href="#" class="text-muted text-hover-primary px-2">Purchase</a>
         </div>
     </div>
 </div>
+
+<script>
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('password');
+        const togglePasswordIcon = document.getElementById('togglePasswordIcon');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            togglePasswordIcon.classList.remove('fa-eye');
+            togglePasswordIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            togglePasswordIcon.classList.remove('fa-eye-slash');
+            togglePasswordIcon.classList.add('fa-eye');
+        }
+    }
+</script>
 @endsection

@@ -19,10 +19,10 @@
             <li class="breadcrumb-item">
                 <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
             </li>
-            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Edit Permohonan</li>
+            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Disposisi Permohonan</li>
             <!--end::Item-->
         </ul>
-        <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Edit Permohonan Layanan</h1>
+        <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">Disposisi Permohonan Layanan</h1>
         <!--end::Title-->
     </div>
 </div>
@@ -36,7 +36,7 @@
         <div class="card">
             <!--begin::Card header-->
             <div class="card-header py-3">
-                <h3 class="card-title">Form Edit Permohonan Layanan</h3>
+                <h3 class="card-title">Form Disposisi Permohonan Layanan</h3>
             </div>
             <!--end::Card header-->
             
@@ -78,8 +78,9 @@
 
                     <div class="mb-3">
                         <label for="nowhatsappaktif" class="form-label">No WhatsApp Aktif</label>
-                        <input type="text" class="form-control" id="nowhatsappaktif" name="nowhatsappaktif" value="{{ $permohonan->nowhatsappaktif }}" required>
+                        <input type="text" class="form-control" id="nowhatsappaktif" name="nowhatsappaktif" value="{{ $permohonan->no_whatsapp }}" readonly>
                     </div>
+                    
 
                     <div class="mb-3">
                         <label for="Lampiran" class="form-label">Lampiran</label>
@@ -91,13 +92,24 @@
                         <input type="date" class="form-control" id="TanggalPelaksana" name="tanggal_pelaksana" value="{{ $permohonan->tanggal_pelaksana }}" required>
                     </div>
 
+                    <div class="mb-3">
+                        <label for="tenaga_ahli" class="form-label">Tenaga Ahli</label>
+                        <select class="form-control" id="tenaga_ahli" name="tenaga_ahli" required>
+                            <option value="">Pilih Tenaga Ahli</option>
+                            @foreach($tenagaAhli as $tenaga)
+                                <option value="{{ $tenaga->id }}">{{ $tenaga->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
                 </div>
                 
                 <!--begin::Card footer-->
                 <div class="card-footer d-flex justify-content-between">
                     <div>
                         <a href="{{ route('permohonan.index') }}" class="btn btn-secondary me-2">Kembali</a>
-                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                        <button type="submit" class="btn btn-primary">Kirim Disposisi</button>
                     </div>
                 </div>
                 <!--end::Card footer-->

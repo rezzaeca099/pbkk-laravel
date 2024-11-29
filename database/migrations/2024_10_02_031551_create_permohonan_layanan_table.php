@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('no_whatsapp'); // Kolom untuk nomor WhatsApp
             $table->string('lampiran')->nullable(); // Kolom untuk lampiran (nullable)
             $table->date('tanggal_pelaksana'); // Kolom untuk tanggal pelaksana
+            $table->string('tenaga_ahli_id');
+                
             $table->timestamps(); // Kolom untuk created_at dan updated_at
         });
 

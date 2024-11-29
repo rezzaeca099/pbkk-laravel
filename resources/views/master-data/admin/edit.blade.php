@@ -1,4 +1,5 @@
 @extends('layout.page')
+
 @section('toolbar')
 <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
     <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
@@ -32,9 +33,8 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('master-akun.update', $user->id) }}" method="post">
+                <form action="{{ route('master-akun.update', $user->id) }}" method="POST">
                     @csrf
-                    {{-- @method('PUT') --}}
 
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama Lengkap</label>
@@ -55,9 +55,21 @@
                         <label for="role" class="form-label">Role</label>
                         <select id="role" class="form-control" name="role" required>
                             <option value="">Pilih Role</option>
-                            <option value="ASN" {{ $user->role == 'ASN' ? 'selected' : '' }}>ASN</option>
-                            <option value="kasatpel" {{ $user->role == 'kasatpel' ? 'selected' : '' }}>kasatpel</option>
-                            <option value="tenaga_ahli" {{ $user->role == 'tenaga_ahli' ? 'selected' : '' }}>tenaga_ahli</option>
+                            <option value="ASN" {{ $user->role_name == 'ASN' ? 'selected' : '' }}>ASN</option>
+                            <option value="kasatpel" {{ $user->role_name == 'kasatpel' ? 'selected' : '' }}>kasatpel</option>
+                            <option value="tenaga_ahli" {{ $user->role_name == 'tenaga_ahli' ? 'selected' : '' }}>tenaga_ahli</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="kasatpel_id" class="form-label">Kasatpel</label>
+                        <select id="kasatpel_id" class="form-control" name="kasatpel_id">
+                            <option value="">Pilih Kasatpel</option>
+                            @foreach ($kasatpelOptions as $kasatpel)
+                                <option value="{{ $kasatpel->id }}" {{ $user->kasatpel_id == $kasatpel->id ? 'selected' : '' }}>
+                                    {{ $kasatpel->name }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
 

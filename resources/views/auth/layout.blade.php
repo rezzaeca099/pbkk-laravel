@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <!--begin::Head-->
 <head><base href="../../"/>
     <title>Layanan Dinas</title>
@@ -22,31 +23,42 @@
             <!--begin::Aside-->
             <div class="d-flex flex-column flex-lg-row-auto bg-primary w-xl-600px positon-xl-relative">
                 <!--begin::Wrapper-->
-                <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y">
-                    <!--begin::Header-->
-                    <div class="d-flex flex-row-fluid flex-column text-center p-5 p-lg-10 pt-lg-20">
-                        <!--begin::Logo-->
-                        <a href="login" class="py-2 py-lg-20">
-                            <img alt="Logo" src="{{ asset('assets/media/logos/logo-dinas.png')}}" class="h-40px h-lg-50px" />
-                        </a>
-                        <!--end::Logo-->
-                        <!--begin::Title-->
-                        <h1 class="d-none d-lg-block fw-bold text-white fs-2qx pb-5 pb-md-10">Selamat Datang</h1>
-                        <!--end::Title-->
-                        <!--begin::Description-->
-                        <p class="d-none d-lg-block fw-semibold fs-2 text-white">Perindustrian Perdagangan Koperasi Usaha Kecil
-                            <br />dan Menengah Provinsi DKI Jakarta.</p>
-                        <!--end::Description-->
-                    </div>
+                    <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y">
+                        <!--begin::Header-->
+                            <div class="d-flex flex-row-fluid flex-column text-center p-5 p-lg-10 pt-lg-20">
+
+                                <!-- jarak atas bawah -->
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <!-- jarak atas bawah -->
+
+                                <!--begin::Logo-->
+                                <a href="login" class="py-2 py-lg-20">
+                                    <img alt="Logo" src="{{ asset('assets/media/logos/logo-dinas.png')}}" class="h-60px h-lg-70px" />
+                                </a>
+                                <!--end::Logo-->
+
+                                <!--begin::Title-->
+                                <h1 class="d-none d-lg-block fw-bold text-white fs-2qx pb-5 pb-md-10">Selamat Datang</h1>
+                                <!--end::Title-->
+
+                                <!--begin::Description-->
+                                <p class="d-none d-lg-block fw-semibold fs-2 text-white">Perindustrian Perdagangan Koperasi Usaha Kecil
+                                    <br />dan Menengah Provinsi DKI Jakarta.</p>
+                                <!--end::Description-->
+
+                                
+                            </div>
                         <!--end::Header-->
-                </div>
-                    <!--end::Wrapper-->
+                    </div>
+                <!--end::Wrapper-->
             </div>
                 <!--begin::Aside-->
                 @yield('content')
         </div>
     </div>  
-
 
         <script src="{{ asset('assets/plugins/global/plugins.bundle.js')}}"></script>
         <script src="{{ asset('assets/js/scripts.bundle.js')}}"></script>

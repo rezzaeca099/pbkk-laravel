@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class MasterLayanan extends Model
 {
-    // use HasFactory;
+    use HasFactory;
     protected $table = 'master_layanan';
 }

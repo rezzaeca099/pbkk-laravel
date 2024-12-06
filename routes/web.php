@@ -27,7 +27,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/dashboard/{id}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
 Route::post('/laporan/{id}/assign', [DashboardController::class, 'assign'])->name('laporan.assign');
 
-
 // auth_login
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');

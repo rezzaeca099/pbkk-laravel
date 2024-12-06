@@ -87,8 +87,17 @@ class PermohonanLayananController extends Controller
         $permohonan->user_id = Auth()->user()->id; 
         $permohonan->no_whatsapp = $request->nowhatsappaktif;
         // $permohonan->lampiran = $request->lampiran;
-        $permohonan->tanggal_pelaksana = $request->tanggal_pelaksana;
+        $permohonan->tanggal_pelaksana = $request->tanggal_pelaksana; 
         $permohonan->tenaga_ahli_id = $request->tenaga_ahli;
+
+        // Logic Untuk Gambar 
+        if(!empty($request->lampiran) && $request->lampiran != null){
+            $file = $request->file('lampiran');
+            $filename = rand(0, 99).time().'_'.$file->getClientOriginalName();
+            $file->storeAs('public', $filename);
+
+            $permohonan->lampiran = $filename;
+        }
         
 
         $permohonan->update();

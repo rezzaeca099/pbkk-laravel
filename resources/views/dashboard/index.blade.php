@@ -55,12 +55,18 @@
                                 {{-- Button --}}
                                 <td>
                                     @if (!$item->asn_id)
-                                    <form action="{{ route('laporan.assign', $item->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin mengalihkan laporan ini ke akun ASN?')">
+                                    <form action="{{ route('laporan.assign', $item->id) }}" method="POST">
                                         @csrf
+                                        <select name="asn_id" class="form-select mb-2">
+                                            @foreach ($asnUsers as $asn)
+                                                <option value="{{ $asn->id }}">{{ $asn->name }}</option>
+                                            @endforeach
+                                        </select>
                                         <button type="submit" class="btn btn-info btn-sm">
                                             <i class="ki-duotone ki-arrow-right fs-6"></i> Alihkan ke ASN
                                         </button>
                                     </form>
+                
                                     @else
                                         <span class="text-muted">-</span>
                                     @endif

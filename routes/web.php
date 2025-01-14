@@ -26,6 +26,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 Route::get('/dashboard/{id}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
 Route::post('/laporan/{id}/assign', [DashboardController::class, 'assign'])->name('laporan.assign');
+Route::get('/asn/dashboard', [DashboardController::class, 'asnDashboard'])->name('asn.dashboard');
 
 // auth_login
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login');

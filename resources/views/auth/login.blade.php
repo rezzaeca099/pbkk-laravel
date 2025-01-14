@@ -36,6 +36,9 @@
                     <div class="text-gray-500 fw-semibold fs-4">Baru Disini?
                         <a href="{{ route('auth.register') }}" class="link-primary fw-bold" style="color: #3B82F6;">Buat Akun</a>
                     </div>
+
+
+
                 </div>
                 
                 <!-- Input group: Email -->
